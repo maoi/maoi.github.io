@@ -28,6 +28,13 @@
         <p>一步一脚印，记录……</p>
       </section>
     </div>
+    <div>
+      <ul>
+　　　　{% for post in site.posts %}
+　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+　　　　{% endfor %}
+　　  </ul>
+    </div>
     <footer>
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
