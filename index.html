@@ -172,9 +172,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="403拒绝访问"><a href="#403拒绝访问" class="headerlink" title="403拒绝访问"></a>403拒绝访问</h2><p>  最近开始研究Python，希望能把一些日常的工作进行自动化。首先想解决的是一个网站的表单提交任务，这是每个月都要做的，大概有几百页的表单需要填写然后提交，每月重复的机械式操作很乏味，不如给自己找点乐趣，顺便学点新东西。</p>
-<p>从网上找了段demo，跑了一下，直接403拒绝访问，果然没那么简单。又去做了一下了解，网站大都做了反爬虫设置，一般的网页抓取是行不通的，而且登陆界面的验证码很难做到自动识别，不过好在网站只要登陆一次就可以进行所有操作，所以最开始需要进行一次手动的登陆操作，登陆验证成功后，就可以想干啥就干啥了。</p>
-<p>直接用urllib.request.urlopen(url)访问网站，会报403拒绝访问的异常。这时就要给request请求添加headers，这里用到了referer和user-agent，两个参数都可以直接在浏览器检查元素里获取到，添加到request里就可以正常抓到页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request = urllib.request.Request(url)</div><div class="line">request.add_header(&quot;GET&quot;, url)</div><div class="line">request.add_header(&quot;Referer&quot;, referer)</div><div class="line">request.add_header(&quot;User-Agent&quot;, user_agent)</div><div class="line">html = urllib.request.urlopen(request).read()</div><div class="line">print(html)</div></pre></td></tr></table></figure></p>
+        <h2 id="403拒绝访问"><a href="#403拒绝访问" class="headerlink" title="403拒绝访问"></a>403拒绝访问</h2><p>最近开始研究Python，希望能把一些日常的工作进行自动化。首先想解决的是一个网站的表单提交任务，这是每个月都要做的，大概有几百页的表单需要填写然后提交，每月重复的机械式操作很乏味，不如给自己找点乐趣，顺便学点新东西。</p>
+<p>从网上找了段demo，跑了一下，直接403拒绝访问，果然没那么简单。又去做了一下功课，网站大都做了反爬虫设置，一般的网页urllib.requese.urlopen是行不通的，而且登陆界面的验证码很难做到自动识别，不过好在目标网站只要登陆一次就可以进行所有操作，所以最开始需要进行一次手动的登陆操作，登陆验证成功后，就可以想干啥就干啥了。</p>
+<p>直接用urllib.request.urlopen(url)访问网站，会报403拒绝访问的异常。这时就要给request请求添加headers，这里用到了referer和user-agent，两个参数都可以直接在浏览器检查元素里获取到，添加到request里就可以正常抓到页面。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request = urllib.request.Request(url)</div><div class="line">request.add_header(<span class="string">"GET"</span>, url)</div><div class="line">request.add_header(<span class="string">"Referer"</span>, referer)</div><div class="line">request.add_header(<span class="string">"User-Agent"</span>, user_agent)</div><div class="line">html = urllib.request.urlopen(request).read()</div><div class="line">print(html)</div></pre></td></tr></table></figure></p>
 
       
 
@@ -188,7 +188,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python|编程笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程笔记</a>
         		</li>
       		
 		</ul>
@@ -476,6 +480,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python|编程笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程笔记</a>
               </li>
             
             <div class="clearfix"></div>
